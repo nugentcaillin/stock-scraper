@@ -8,9 +8,12 @@ import java.time.LocalDate;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class StockPrice {
@@ -19,7 +22,9 @@ public class StockPrice {
     private Long id;
 
     @JsonBackReference
-    private Long stockId;
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="stock_id")
+    private Stock stock;
 
     private BigDecimal price;
 
@@ -29,8 +34,8 @@ public class StockPrice {
         return id;
     }
 
-    public Long getStockId() {
-        return stockId;
+    public Stock getStock() {
+        return stock;
     }
 
     public BigDecimal getPrice() {
@@ -45,8 +50,8 @@ public class StockPrice {
         this.id = id;
     }
 
-    public void setStockId(Long stockId) {
-        this.stockId = stockId;
+    public void setStock(Stock stock) {
+        this.stock = stock;
     }
 
     public void setPrice(BigDecimal price) {

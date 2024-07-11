@@ -10,3 +10,6 @@ API that serves scraped stock data in JSON format
 |STOCK_SCRAPER_DB_URL|url to the mysql database|jdbc:mysql://localhost:3306/stock_scraper|
 |STOCK_SCRAPER_DB_USER|username|stock_scraper|
 |STOCK_SCRAPER_DB_PASS|password|test|
+
+### to start in dev: mvn spring-boot:run -Dspring-boot.run.profiles=dev
+### to start in prod: mvn spring-boot:run -Dspring-boot.run.profiles=prod

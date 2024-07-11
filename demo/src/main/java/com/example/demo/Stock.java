@@ -20,8 +20,9 @@ public class Stock {
     private String ticker;
 
     @JsonManagedReference
-    @OneToMany(mappedBy="stockId", cascade=CascadeType.ALL, orphanRemoval=true)
+    @OneToMany(mappedBy="stock", cascade=CascadeType.ALL, orphanRemoval=true)
     private List<StockPrice> prices = new ArrayList<StockPrice>();
+
 
     public Long getId() {
         return id;
