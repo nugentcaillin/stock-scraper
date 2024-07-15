@@ -18,6 +18,11 @@ public class Stock {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
     private String ticker;
+    private String exchange;
+
+    public String GetExchange() {
+        return exchange;
+    }
 
     @JsonManagedReference
     @OneToMany(mappedBy="stock", cascade=CascadeType.ALL, orphanRemoval=true)
@@ -34,6 +39,10 @@ public class Stock {
 
     public String getTicker() {
         return ticker;
+    }
+
+    public void setExchange(String exchange) {
+        this.exchange = exchange;
     }
 
     public void setTicker(String ticker) {
