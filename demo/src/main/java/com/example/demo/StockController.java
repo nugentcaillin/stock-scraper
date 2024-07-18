@@ -6,8 +6,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/stock")
@@ -16,10 +16,10 @@ public class StockController {
     @Autowired
     private StockRepository stockRepository;
 
-    @GetMapping
+    @GetMapping("/{exchange}/{ticker}")
     public ResponseEntity<Stock> getPrices(
-        @RequestParam String ticker, 
-        @RequestParam String exchange) {
+        @PathVariable(name="ticker") String ticker, 
+        @PathVariable(name="exchange") String exchange) {
 
         Stock s = stockRepository.findByTickerAndExchange(ticker, exchange);
 

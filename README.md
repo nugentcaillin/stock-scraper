@@ -16,22 +16,22 @@ API that serves scraped stock data in JSON format
 
 # endpoints: 
 
-## GET: /stock
+## GET: /stock/exchange/ticker
 Returns information for a stock 
-#### Query Parameters:
+#### URL Parameters:
 |name|type|description|
 |----|----|-----------|
 |ticker|String|The stock ticker|
 |exchange|String|Acronym for the exchange. Currently supported: ASX|
 ## GET: /price/exchange/ticker
 Returns a list of prices between the given dates for a stock, with dates inclusive on both ends
-#### Query Parameters
-|name|type|description|
-|---|---|---|
-|startDate|iso formatted date string eg. 2024-07-11|start date of search|
-|endDate|iso formatted date string eg. 2024-07-11|end date of search|
-#### Url Parameters
+#### URL Parameters
 |name|type|description|
 |----|----|-----------|
 |ticker|String|The stock ticker|
 |exchange|String|Acronym for the exchange. Currently supported: ASX|
+#### Query Parameters
+|name|type|description|required|
+|---|---|---|---|
+|startDate|iso formatted date string eg. 2024-07-11|start date of search|yes|
+|endDate|iso formatted date string eg. 2024-07-11|end date of search|yes|
